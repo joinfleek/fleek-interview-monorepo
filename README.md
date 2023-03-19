@@ -84,8 +84,6 @@ More info if needed: [`Prisma Studio`](https://www.prisma.io/docs/concepts/compo
 $ npx prisma studio
 ```
 
-![image](https://user-images.githubusercontent.com/15246526/109402305-b4ce0800-7909-11eb-88d7-924e4db3d74f.png)
-
 #### 5. Generate the prisma client
 
 Prisma Client is an auto-generated database client that's tailored to your database schema.
