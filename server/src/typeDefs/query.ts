@@ -4,7 +4,9 @@ export const query = gql`
   type Query {
     usersPagination(page: Float!, where: UserWhereInput): UsersPagination!
     user(userId: String!): User!
-
     me: User!
+    product(id: String!): Product!
+    products: [Product!]!
+    vendors: [Vendor!]!
   }
 `

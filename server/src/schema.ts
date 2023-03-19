@@ -44,6 +44,17 @@ export const resolvers = {
       const count = await ctx.prisma.user.count({ where })
       return { users, count, take }
     },
+    product: (parent, args, ctx: Context) => {
+      return ctx.prisma.product.findUnique({
+        where: { id: args.id },
+      })
+    },
+    products: (parent, args, ctx: Context) => {
+      return ctx.prisma.product.findMany()
+    },
+    vendors: (parent, args, ctx: Context) => {
+      return ctx.prisma.vendor.findMany()
+    },
   },
   Mutation: {
     deleteUser: (parent, args, ctx: Context) => {

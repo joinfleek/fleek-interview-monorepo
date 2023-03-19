@@ -21,3 +21,23 @@ model User {
   isEmailValidated          Boolean
   name                      String
 }
+model Product {
+  id                        String          @id @default(cuid())
+  createdAt                 DateTime        @default(now())
+  updatedAt                 DateTime        @updatedAt
+  name                      String
+  description               String
+  price                     Float
+  currency                  String
+  vendor                    Vendor         @relation(fields: [vendorId], references: [id])
+  vendorId                  String
+}
+
+model Vendor {
+  id                        String          @id @default(cuid())
+  createdAt                 DateTime        @default(now())
+  updatedAt                 DateTime        @updatedAt
+  name                      String
+  email                     String          @unique
+  products                  Product[]
+}

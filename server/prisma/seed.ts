@@ -16,7 +16,33 @@ async function main() {
   })
 
   console.log({ user })
+
+  if(await prisma.product.count() > 0) {
+    return
+  }
+  
+  Array.from({length: 20}, (_, i) => i + 1).map(async (i) => {
+    const vendor = await prisma.vendor.create({ 
+      data: { 
+        name: `Vendor ${i}`,
+        email: `vendor=${i}@example.com`,
+      }
+    })
+    
+    Array.from({length: 10}, (_, j) => j + 1).map(async (j) => {
+      await prisma.product.create({ 
+        data: { 
+          name: `Product ${j}`,
+          price: Math.floor(Math.random() * 1000),
+          currency: 'USD',
+          vendorId: vendor.id,
+          description: `Description for product ${i}`
+        }
+      })
+    })
+  })
 }
+
 main()
   .catch((e) => {
     console.error(e)
