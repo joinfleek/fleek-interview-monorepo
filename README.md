@@ -7,7 +7,7 @@
 #### 1. Clone the repo to your computer
 
 ```
-git clone <repo-url>
+git clone git@github.com:joinfleek/fleek-interview-monorepo.git
 ```
 
 #### 2. Go the the repo
@@ -31,27 +31,6 @@ More info if needed: [`Prisma Migrate`](https://www.prisma.io/docs/concepts/comp
 
 ```
 npx prisma migrate dev
-```
-
-Pick a name for your first migration. Example "init"
-
-```
-> npx prisma migrate dev
-Prisma schema loaded from prisma/schema.prisma
-Datasource "db": SQLite database "dev.db" at "file:./dev.db"
-
-SQLite database dev.db created at file:./dev.db
-
-✔ Name of migration … init
-The following migration(s) have been created and applied from new schema changes:
-
-migrations/
-  └─ 20210227221806_init/
-    └─ migration.sql
-
-✔ Generated Prisma Client (2.17.0) to ./node_modules/@prisma/client in 71ms
-
-Everything is now in sync.
 ```
 
 To reset your database if needed, use Prisma Reset.
@@ -99,6 +78,8 @@ npx prisma generate
 ```
 yarn start
 ```
+
+#### 7. Check graphQL playground at http://localhost:4000/graphql
 
 ## Frontend
 

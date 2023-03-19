@@ -29,14 +29,14 @@ async function main() {
       }
     })
     
-    Array.from({length: 10}, (_, j) => j + 1).map(async (j) => {
+    Array.from({length: 10}, (_, j) => j).map(async (j) => {
       await prisma.product.create({ 
         data: { 
-          name: `Product ${j}`,
+          name: `Product ${i}${j}`,
           price: Math.floor(Math.random() * 1000),
           currency: 'USD',
           vendorId: vendor.id,
-          description: `Description for product ${i}`
+          description: `Description for product ${i}${j}}`
         }
       })
     })
