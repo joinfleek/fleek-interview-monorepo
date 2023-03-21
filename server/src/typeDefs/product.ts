@@ -8,5 +8,7 @@ export const product = gql`
     price: Float!
     currency: String!
     vendor: Vendor!
+    quantity: Int!
+    shipping_price: Float!
   }
 `
